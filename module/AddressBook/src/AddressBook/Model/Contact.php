@@ -175,4 +175,19 @@ class Contact {
         return get_object_vars($this);
     }
 
+    public function exchangeArray($data) {
+        $this->setId((isset($data['id'])) ? $data['id'] : null);
+        $this->setFirstName((isset($data['firstName'])) ? $data['firstName'] : null);
+        $this->setLastName((isset($data['lastName'])) ? $data['lastName'] : null);
+        $this->setAddress1((isset($data['address1'])) ? $data['address1'] : null);
+        $this->setAddress2((isset($data['address2'])) ? $data['address2'] : null);
+        $this->setCity((isset($data['city'])) ? $data['city'] : null);
+        $this->setState((isset($data['state'])) ? $data['state'] : null);
+        $this->setZip((isset($data['zip'])) ? $data['zip'] : null);
+        $this->setEmail((isset($data['email'])) ? $data['email'] : null);
+        $this->setPhoneNumber((isset($data['phoneNumber'])) ? $data['phoneNumber'] : null);
+        $this->setMiddleInitial((isset($data['middleInitial'])) ? $data['middleInitial'] : null);
+        $this->setZip4((isset($data['zip4'])) ? $data['zip4'] : null);
+    }
+
 }
