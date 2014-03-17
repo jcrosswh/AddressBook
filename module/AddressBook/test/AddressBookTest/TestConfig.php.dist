@@ -28,6 +28,8 @@
 
 return array(
     'modules' => array(
+        'DoctrineModule',
+        'DoctrineORMModule',
         'AddressBook',
     ),
     'module_listener_options' => array(

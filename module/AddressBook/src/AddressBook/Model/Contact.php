@@ -29,18 +29,23 @@
 namespace AddressBook\Model;
 
 use Doctrine\ORM\Mapping as ORM;
+use JsonSerializable;
 
 /**
  * @ORM\Entity
  */
-class Contact {
+class Contact implements JsonSerializable {
 
     /**
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      * @ORM\Column(type="integer")
      */
+
     private $id;
+    
+    /** @ORM\Version @ORM\Column(type="integer") */
+    private $version;
 
     /** @ORM\Column(type="string") */
     private $firstName;
@@ -51,7 +56,7 @@ class Contact {
     /** @ORM\Column(type="string") */
     private $address1;
 
-    /** @ORM\Column(type="string") */
+    /** @ORM\Column(type="string", nullable=true) */
     private $address2;
 
     /** @ORM\Column(type="string") */
@@ -69,10 +74,10 @@ class Contact {
     /** @ORM\Column(type="string") */
     private $phoneNumber;
 
-    /** @ORM\Column(type="string") */
+    /** @ORM\Column(type="string", nullable=true) */
     private $middleInitial;
 
-    /** @ORM\Column(type="string") */
+    /** @ORM\Column(type="string", nullable=true) */
     private $zip4;
 
     public function getId() {
@@ -188,6 +193,15 @@ class Contact {
         $this->setPhoneNumber((isset($data['phoneNumber'])) ? $data['phoneNumber'] : null);
         $this->setMiddleInitial((isset($data['middleInitial'])) ? $data['middleInitial'] : null);
         $this->setZip4((isset($data['zip4'])) ? $data['zip4'] : null);
+    }
+
+    public function jsonSerialize() {
+        $json = array();
+        foreach ($this as $key => $value) {
+            $json[$key] = $value;
+        }
+
+        return $json;
     }
 
 }
