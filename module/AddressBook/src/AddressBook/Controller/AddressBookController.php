@@ -70,17 +70,17 @@ class AddressBookController extends AbstractRestfulController {
         $em = $this->getObjectManager();
 
         $contact = $em->find('AddressBook\Model\Contact', $id);
-        $contact->setFirstName($data['firstName']);
-        $contact->setLastName($data['lastName']);
-        $contact->setMiddleInitial($data['middleInitial']);
-        $contact->setAddress1($data['address1']);
-        $contact->setAddress2($data['address2']);
-        $contact->setCity($data['city']);
-        $contact->setState($data['state']);
-        $contact->setZip($data['zip']);
-        $contact->setZip4($data['zip4']);
-        $contact->setPhoneNumber($data['phoneNumber']);
-        $contact->setEmail($data['email']);
+        $contact->setFirstName($data['data']['firstName']);
+        $contact->setLastName($data['data']['lastName']);
+        $contact->setMiddleInitial($data['data']['middleInitial']);
+        $contact->setAddress1($data['data']['address1']);
+        $contact->setAddress2($data['data']['address2']);
+        $contact->setCity($data['data']['city']);
+        $contact->setState($data['data']['state']);
+        $contact->setZip($data['data']['zip']);
+        $contact->setZip4($data['data']['zip4']);
+        $contact->setPhoneNumber($data['data']['phoneNumber']);
+        $contact->setEmail($data['data']['email']);
 
         $contact = $em->merge($contact);
         $em->flush();
