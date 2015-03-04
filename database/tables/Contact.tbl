@@ -1,0 +1,16 @@
+CREATE TABLE `Contact` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `firstName` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `lastName` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `address1` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `address2` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `city` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `state` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `zip` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `phoneNumber` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `middleInitial` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `zip4` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `version` int(11) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
