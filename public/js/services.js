@@ -17,7 +17,10 @@ addrBookServices.factory('AddrBook', ['$resource',
           method : 'POST'
         },
         remove : {
-          method : 'DELETE'
+          method : 'POST',
+          params : {
+            '_method' : 'DELETE'
+          }
         },
       });
     }
@@ -34,7 +37,10 @@ addrBookServices.factory('Contact', ['$resource',
           isArray : true
         },
         edit : {
-          method : 'PUT'
+          method : 'POST',
+          params : {
+            '_method' : 'PUT'
+          }
         }
       });
     }

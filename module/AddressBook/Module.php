@@ -10,7 +10,12 @@
 
 namespace AddressBook;
 
-class Module {
+use Zend\EventManager\EventInterface;
+use Zend\Http\Request;
+use Zend\ModuleManager\Feature\BootstrapListenerInterface;
+use Zend\Mvc\MvcEvent;
+
+class Module implements BootstrapListenerInterface {
 
     public function getConfig() {
         return include __DIR__ . '/config/module.config.php';
@@ -27,6 +32,32 @@ class Module {
                 ),
             ),
         );
+    }
+
+    public function onBootstrap(EventInterface $event) {
+        $event->getApplication()
+                ->getEventManager()
+                ->attach(MvcEvent::EVENT_ROUTE, function(MvcEvent $e) {
+                    $request = $e->getRequest();
+                    $m = $request->getQuery('_method');
+
+                    switch ($m) {
+                        case Request::METHOD_PUT:
+                            $request->setMethod(Request::METHOD_PUT);
+                            break;
+                        case Request::METHOD_DELETE:
+                            $request->setMethod(Request::METHOD_DELETE);
+                            break;
+                        case Request::METHOD_POST:
+                            $request->setMethod(Request::METHOD_POST);
+                            break;
+                        case Request::METHOD_GET:
+                            $request->setMethod(Request::METHOD_GET);
+                            break;
+                        default:
+                            break;
+                    }
+                });
     }
 
 }
