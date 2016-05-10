@@ -7,8 +7,7 @@ html,
 button,
 input,
 select,
-textarea,
-.pure-g [class *= "pure-u"] {
+textarea {
   font-family: 'Open Sans', sans-serif;
 
 }
@@ -39,11 +38,8 @@ html {
   @include placeholder();
 
 }
-img.pure-img {
-  vertical-align: middle;
-  max-width: 60%;
-  display: inline;
-
+body {
+  padding-top: 70px;
 }
 code {
   color: $red;
@@ -52,10 +48,6 @@ code {
 h3 {
   font-weight: normal;
   @include font-size(22);
-
-}
-.pure-menu.pure-menu-horizontal {
-  background: $silver;
 
 }
 a {

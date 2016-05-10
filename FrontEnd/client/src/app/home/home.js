@@ -17,6 +17,6 @@
       });
   }
 
-  angular.module('home', [])
+  angular.module('home', ['common.filters'])
     .config(config);
 })();
