@@ -5,9 +5,9 @@
     angular.bootstrap(document, ['app']);
   });
 
-  function config($stateProvider, $urlRouterProvider, $logProvider, $httpProvider) {
+  function config($stateProvider, $urlRouterProvider, $logProvider, $httpProvider, $locationProvider) {
     $urlRouterProvider.otherwise('/');
-    $logProvider.debugEnabled(true);
+    $logProvider.debugEnabled(false);
     $httpProvider.interceptors.push('httpInterceptor');
     $stateProvider
       .state('root', {
@@ -22,6 +22,7 @@
           }
         }
       });
+    $locationProvider.html5Mode(true);
   }
 
   function MainCtrl($log) {

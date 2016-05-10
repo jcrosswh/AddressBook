@@ -1,9 +1,18 @@
-<div class="pure-menu pure-menu-open pure-menu-horizontal">
-  <a class="pure-menu-heading" href="">angular-kickstart <span app-version></span></a>
-  <ul>
-    <li ui-sref-active="pure-menu-selected"><a href ui-sref="root.home">{{ 'home' | uppercase }}</a>
-    </li>
-    <li ui-sref-active="pure-menu-selected"><a href ui-sref="root.getting-started">{{ 'getting started' | uppercase }}</a>
-    </li>
-  </ul>
-</div>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href ui-sref="root.home">Address Book</a>
+    </div>
+    <div id="navbar" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li ui-sref-active="active"><a href ui-sref="root.home">Home</a></li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</nav>

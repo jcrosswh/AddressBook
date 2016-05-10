@@ -1,12 +1,21 @@
 (function() {
   'use strict';
 
-  function dataService() {
+  function dataService($q) {
     return {
-      get: function() {
-        return ['some', 'data'];
+      getContacts: function() {
+        return $q(function(resolve, reject) {
+          setTimeout(function() {
+            resolve([{
+              firstName: 'Adam',
+              lastName: 'Smith',
+              id: 1
+            }]);
+            // reject({TODO:  test error response}});
+          }, 200);
+        });
       }
-    };
+    }
   }
 
   angular.module('common.services.data', [])
